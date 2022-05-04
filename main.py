@@ -1,16 +1,18 @@
-# This is a sample Python script.
+# -*- coding: utf-8 -*-
+""" main.py """
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from configs.config import CFG
+from model.classifier import Classifier
 
 
-# Press the green button in the gutter to run the script.
+def run():
+    """Builds model, loads data, trains and evaluates"""
+    model = Classifier(CFG)
+    model.load_data()
+    model.build()
+    model.train()
+    model.evaluate()
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    run()
